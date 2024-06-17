@@ -41,6 +41,14 @@ input {
    border: 1px solid black;
 }
 
+div#box .square.clicked.safe {
+   background-color: rgb(11, 11, 172);
+}
+
+div#box .square.clicked.bomb {
+   background-color: rgb(190, 35, 7);
+}
+
 
 /* footer style */
 
