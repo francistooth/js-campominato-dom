@@ -59,6 +59,7 @@ function cycleGrid(box, r, c) {
             }
 
             event.preventDefault();
+            
          });
 
          counter++;
