@@ -19,25 +19,35 @@ function spawnGrid(diff) {
 function cycleGrid(box, r, c) {
    let counter = 0;
 
-   let bombs = arrayGenerator(1, (r*c), 16);
+   // creo le bombe 
+
+   const bombs = arrayGenerator(1, (r*c), 16);
 
    console.log(bombs);
 
+   // inizializzo il punteggio
+
    let score = 0;
 
+   // creo la griglia di numeri
+
    for (let i = 0; i < r; i++) {
-      let row = document.createElement("div");
+      const row = document.createElement("div");
       row.classList.add('row');
 
-      
       for (let j = 0; j < c; j++) {
-         let square = document.createElement("div");
+         const square = document.createElement("div");
          square.classList.add('square', 'd-flex', 'justify-content-center', 'align-items-center');
          square.innerHTML = `<a href="#" class="nodeco">${counter + 1}</a>`;
+
+         // gestisco i click sulle singole celle
+
          square.addEventListener("click", function(){
             this.classList.add("clicked");
 
-            if (bombs.includes(counter)) {
+            console.log(this);
+
+            if (bombs.includes(this.innerHTML)) {
                this.classList.add("bomb");
 
                console.log(`bomba presa! punteggio ${score}`)
@@ -47,7 +57,10 @@ function cycleGrid(box, r, c) {
 
                console.log(`sei al sicuro per ora, punteggio provvisorio ${score}`)
             }
+
+            event.preventDefault();
          });
+
          counter++;
          row.appendChild(square);
       }
@@ -57,7 +70,7 @@ function cycleGrid(box, r, c) {
 }
 
 function arrayGenerator(min, max, l) {
-   let array = [];
+   const array = [];
 
    for (let i = 0; array.length < l; i++) {
       let random = randomNumber(min, max);
