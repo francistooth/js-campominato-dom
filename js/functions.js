@@ -45,9 +45,9 @@ function cycleGrid(box, r, c) {
          square.addEventListener("click", function(){
             this.classList.add("clicked");
 
-            console.log(this);
+            console.log(this.firstChild.innerHTML);
 
-            if (bombs.includes(this.innerHTML)) {
+            if (bombs.includes(parseInt(this.firstChild.innerHTML))) {
                this.classList.add("bomb");
 
                console.log(`bomba presa! punteggio ${score}`)
